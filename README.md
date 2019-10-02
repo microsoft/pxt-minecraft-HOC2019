@@ -1,4 +1,4 @@
-# Minecraft 2019 Hour of Code Extension [![Build Status](https://travis-ci.org/Microsoft/pxt-minecraft-hoc2019.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-minecraft-hoc2019)
+# Minecraft 2019 Hour of Code™ Extension [![Build Status](https://travis-ci.org/Microsoft/pxt-minecraft-hoc2019.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-minecraft-hoc2019)
 
 This repo has additional blocks and api for Minecraft 2019 Hour of Code™ experience.  
 
@@ -18,7 +18,7 @@ MIT
 (The metadata above is needed for package search.)
 
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
