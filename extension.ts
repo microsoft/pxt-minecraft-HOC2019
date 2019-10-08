@@ -3,24 +3,26 @@
  */
 //% weight=94 color=#EC7505 icon="\uf1b3"
 namespace hourOfCode {
-    // fire hazards for agent to detect in HoC world (deadbush=32, double_plant=175)
-    export enum FireHazards {
-        //% block="dead bush"
-        DeadBush = Block.DeadBush,
-        //% block="dry grass"
-        DryGrass = Block.Sunflower
+    let targetsL4 = 5
+    let targetsL5 = 8
+    let targetsL6 = 12
+
+    //% block="agent detect dead bush %dir"
+    //% weight=80
+    export function agentDetectDeadBush(dir: SixDirection) {
+        return agent.inspect(AgentInspection.Block, dir) == Block.DeadBush
     }
 
-    //% block="agent detect %FireHazards %dir"
-    //% weight=30
-    export function agentDetectFireHazard(flammableThing: FireHazards, dir: SixDirection) {
-        return agent.inspect(AgentInspection.Block, dir) == flammableThing
+    //% block="agent detect dry grass %dir"
+    //% weight=80
+    export function agentDetectDryGrass(dir: SixDirection) {
+        return agent.inspect(AgentInspection.Block, dir) == Block.Sunflower
     }
-    
+
     //% block="agent analyze %dir"
-    //% weight=40
-    export function analyze(dir: SixDirection) {
-        if (agentDetectFireHazard(FireHazards.DeadBush, dir) || agentDetectFireHazard(FireHazards.DryGrass, dir)) {
+    //% weight=70
+    export function agentAnalyze(dir: SixDirection) {
+        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
             mobs.execute(
                 mobs.target(TargetSelectorKind.NearestPlayer),
                 positions.create(0, 0, 0),
@@ -29,10 +31,45 @@ namespace hourOfCode {
         }
     }
 
-    // condition for level completion: gold block placed at arbitrary location. to be finalized by world creators
-    //% block
-    //% weight=20
-    export function hazardsRemain() {
-        return !(blocks.testForBlock(Block.GoldBlock, positions.create(0, -5, 0).toWorld()))
+    //% block="hazards remain"
+    //% weight=45
+    export function hazardsRemainL4() {
+        return targetsL4 > 0
     }
-} 
+    //% block="agent destroy %dir"
+    //% weight=40
+    export function agentDestroyL4(dir: SixDirection) {
+        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+            targetsL4 -= 1
+        }
+        agent.destroy(dir)
+    }
+
+    //% block="hazards remain"
+    //% weight=55
+    export function hazardsRemainL5() {
+        return targetsL5 > 0
+    }
+    //% block="agent destroy %dir"
+    //% weight=50
+    export function agentDestroyL5(dir: SixDirection) {
+        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+            targetsL5 -= 1
+        }
+        agent.destroy(dir)
+    }
+
+    //% block="hazards remain"
+    //% weight=65
+    export function hazardsRemainL6() {
+        return targetsL6 > 0
+    }
+    //% block="agent destroy %dir"
+    //% weight=60
+    export function agentDestroyL6(dir: SixDirection) {
+        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+            targetsL6 -= 1
+        }
+        agent.destroy(dir)
+    }
+}
