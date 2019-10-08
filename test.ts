@@ -1,3 +1,3 @@
-hourOfCode.goalNotReached();
-hourOfCode.agentDetectFire(SixDirection.Forward);
-hourOfCode.agentDetectDeadBush(SixDirection.Forward);
+hourOfCode.analyze(SixDirection.Forward);
+hourOfCode.agentDetectFireHazard(FireHazards.DeadBush, SixDirection.Forward);
+hourOfCode.hazardsRemain();
