@@ -39,7 +39,8 @@ namespace hourOfCode {
     //% block="agent destroy %dir"
     //% weight=40
     export function agentDestroyL4(dir: SixDirection) {
-        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+        let targetBlock = agent.inspect(AgentInspection.Block, dir)
+        if (targetBlock == Block.DeadBush || targetBlock == Block.Sunflower) {
             targetsL4 -= 1
         }
         agent.destroy(dir)
@@ -53,7 +54,8 @@ namespace hourOfCode {
     //% block="agent destroy %dir"
     //% weight=50
     export function agentDestroyL5(dir: SixDirection) {
-        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+        let targetBlock = agent.inspect(AgentInspection.Block, dir)
+        if (targetBlock == Block.DeadBush || targetBlock == Block.Sunflower) {
             targetsL5 -= 1
         }
         agent.destroy(dir)
@@ -67,7 +69,8 @@ namespace hourOfCode {
     //% block="agent destroy %dir"
     //% weight=60
     export function agentDestroyL6(dir: SixDirection) {
-        if (hourOfCode.agentDetectDeadBush(dir) || hourOfCode.agentDetectDryGrass(dir)) {
+        let targetBlock = agent.inspect(AgentInspection.Block, dir)
+        if (targetBlock == Block.DeadBush || targetBlock == Block.Sunflower) {
             targetsL6 -= 1
         }
         agent.destroy(dir)
