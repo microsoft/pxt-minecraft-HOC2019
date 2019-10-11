@@ -6,14 +6,15 @@ namespace hourOfCode {
     let targetsL4 = 5
     let targetsL5 = 8
     let targetsL6 = 12
-    let hazardA = Block.DeadBush
-    let hazardB = Block.Sunflower
-    let completionBlock = Block.DiamondBlock
-    let completionPosition = positions.createWorld(213, 99, 96)
+    let hazardA = 31    // fern for HoC (variants: tallgrass)
+    let hazardB = 175   // double tallgrass for HoC (variants: peony, rose bush, large fern, lilac, sunflower)
+    let completionBlockA = Block.DiamondBlock
+    let completionBlockB = Block.GoldBlock
+    let completionPosition = [positions.createWorld(-75, 65, -122), positions.createWorld(-57, 57, -63), positions.createWorld(-4, 32, 199)]
 
-    //% block="agent detect dead bush %dir"
+    //% block="agent detect dry fern %dir"
     //% weight=80
-    export function agentDetectDeadBush(dir: SixDirection) {
+    export function agentDetectDryFern(dir: SixDirection) {
         return agent.inspect(AgentInspection.Block, dir) == hazardA
     }
 
@@ -33,7 +34,12 @@ namespace hourOfCode {
                 positions.create(0, 0, 0),
                 "playsound random.levelup @p"
             )
-            blocks.place(completionBlock, completionPosition)
+            if (targetBlock == hazardA) {
+                blocks.place(completionBlockA, completionPosition[0])
+            } else {
+                blocks.place(completionBlockB, completionPosition[0])
+            }
+            
         }
     }
 
@@ -41,7 +47,7 @@ namespace hourOfCode {
     //% weight=45
     export function hazardsRemainL4() {
         if (targetsL4 == 0) {
-            blocks.place(completionBlock, completionPosition)
+            blocks.place(completionBlockA, completionPosition[1])
         }
         return targetsL4 > 0
     }
@@ -59,7 +65,7 @@ namespace hourOfCode {
     //% weight=55
     export function hazardsRemainL5() {
         if (targetsL5 == 0) {
-            blocks.place(completionBlock, completionPosition)
+            blocks.place(completionBlockA, completionPosition[2])
         }
         return targetsL5 > 0
     }
@@ -77,7 +83,7 @@ namespace hourOfCode {
     //% weight=65
     export function hazardsRemainL6() {
         if (targetsL6 == 0) {
-            blocks.place(completionBlock, completionPosition)
+            blocks.place(completionBlockB, completionPosition[2])
         }
         return targetsL6 > 0
     }
