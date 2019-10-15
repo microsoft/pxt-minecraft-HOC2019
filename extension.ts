@@ -14,18 +14,30 @@ namespace hourOfCode {
     let completionPosition = [positions.createWorld(-75, 65, -122), positions.createWorld(-57, 57, -63), positions.createWorld(-4, 32, 199)]
     let brokeNonHazard = false
 
+    /**
+     * Detect the hazard of a dry fern
+     * @param dir the direction to detect the dry fern
+     */
     //% block="agent detect dry fern %dir"
     //% weight=80
     export function agentDetectDryFern(dir: SixDirection) {
         return agent.inspect(AgentInspection.Block, dir) == hazardA
     }
 
+    /**
+     * Detect the hazard of dry grass
+     * @param dir the direction to detect the dry grass
+     */
     //% block="agent detect dry grass %dir"
     //% weight=80
     export function agentDetectDryGrass(dir: SixDirection) {
         return agent.inspect(AgentInspection.Block, dir) == hazardB
     }
 
+    /**
+     * Check for any hazards in a direction
+     * @param dir the direction to check for hazards
+     */
     //% block="agent analyze %dir"
     //% weight=70
     export function agentAnalyze(dir: SixDirection) {
@@ -45,7 +57,10 @@ namespace hourOfCode {
         }
     }
 
-    //% block="hazards remain"
+    /**
+     * Check for any remaining hazards on level 4
+     */
+    //% block="hazards remain L4"
     //% weight=45
     export function hazardsRemainL4() {
         if (targetsL4 == 0 && !brokeNonHazard) {
@@ -53,7 +68,12 @@ namespace hourOfCode {
         }
         return targetsL4 > 0
     }
-    //% block="agent destroy %dir"
+
+    /**
+     * Destroy block at level 4
+     * @param dir the direction to destroy a block at
+     */
+    //% block="agent destroy L4 %dir"
     //% weight=40
     export function agentDestroyL4(dir: SixDirection) {
         loops.pause(500)
@@ -66,7 +86,10 @@ namespace hourOfCode {
         agent.destroy(dir)
     }
 
-    //% block="hazards remain"
+    /**
+     * Check for any remaining hazards on level 5
+     */
+    //% block="hazards remain L5"
     //% weight=55
     export function hazardsRemainL5() {
         if (targetsL5 == 0 && !brokeNonHazard) {
@@ -74,7 +97,12 @@ namespace hourOfCode {
         }
         return targetsL5 > 0
     }
-    //% block="agent destroy %dir"
+    
+    /**
+     * Destroy block at level 5
+     * @param dir the direction to destroy a block at
+     */
+    //% block="agent destroy L5 %dir"
     //% weight=50
     export function agentDestroyL5(dir: SixDirection) {
         let targetBlock5 = agent.inspect(AgentInspection.Block, dir)
@@ -86,7 +114,10 @@ namespace hourOfCode {
         agent.destroy(dir)
     }
 
-    //% block="hazards remain"
+    /**
+     * Check for any remaining hazards on level 6
+     */
+    //% block="hazards remain L6"
     //% weight=65
     export function hazardsRemainL6() {
         if (targetsL6 == 0 && !brokeNonHazard) {
@@ -94,7 +125,12 @@ namespace hourOfCode {
         }
         return targetsL6 > 0
     }
-    //% block="agent destroy %dir"
+
+    /**
+     * Destroy block at level 6
+     * @param dir the direction to destroy a block at
+     */
+    //% block="agent destroy L6 %dir"
     //% weight=60
     export function agentDestroyL6(dir: SixDirection) {
         let targetBlock6 = agent.inspect(AgentInspection.Block, dir)

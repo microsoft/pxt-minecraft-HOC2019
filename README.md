@@ -14,7 +14,7 @@ MIT
 
 ## Supported targets
 
-* for PXT/microbit
+* for PXT/minecraft
 (The metadata above is needed for package search.)
 
 

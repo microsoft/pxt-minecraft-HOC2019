@@ -1,0 +1,18 @@
+{
+  "hourOfCode": "Writing data for hacking stem experiments",
+  "hourOfCode.agentAnalyze": "Check for any hazards in a direction",
+  "hourOfCode.agentAnalyze|param|dir": "the direction to check for hazards",
+  "hourOfCode.agentDestroyL4": "Destroy block at level 4",
+  "hourOfCode.agentDestroyL4|param|dir": "the direction to destroy a block at",
+  "hourOfCode.agentDestroyL5": "Destroy block at level 5",
+  "hourOfCode.agentDestroyL5|param|dir": "the direction to destroy a block at",
+  "hourOfCode.agentDestroyL6": "Destroy block at level 6",
+  "hourOfCode.agentDestroyL6|param|dir": "the direction to destroy a block at",
+  "hourOfCode.agentDetectDryFern": "Detect the hazard of a dry fern",
+  "hourOfCode.agentDetectDryFern|param|dir": "the direction to detect the dry fern",
+  "hourOfCode.agentDetectDryGrass": "Detect the hazard of dry grass",
+  "hourOfCode.agentDetectDryGrass|param|dir": "the direction to detect the dry grass",
+  "hourOfCode.hazardsRemainL4": "Check for any remaining hazards on level 4",
+  "hourOfCode.hazardsRemainL5": "Check for any remaining hazards on level 5",
+  "hourOfCode.hazardsRemainL6": "Check for any remaining hazards on level 6"
+}
