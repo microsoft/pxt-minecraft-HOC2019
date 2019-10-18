@@ -7,3 +7,5 @@ hourOfCode.hazardsRemainL6();
 hourOfCode.agentDestroyL4(SixDirection.Forward);
 hourOfCode.agentDestroyL5(SixDirection.Forward);
 hourOfCode.agentDestroyL6(SixDirection.Forward);
+hourOfCode.openDoor();
+hourOfCode.completeTask();
