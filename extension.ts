@@ -23,7 +23,7 @@ namespace hourOfCode {
             mobs.execute(
                 mobs.target(TargetSelectorKind.NearestPlayer),
                 positions.create(0, 0, 0),
-                "scoreboard players add @s task 1"
+                "scoreboard players set @s success 1"
             )
             taskIsComplete = true
         }
