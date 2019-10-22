@@ -10,6 +10,7 @@ namespace hourOfCode {
     let targetsL4 = 5
     let targetsL5 = 10
     let targetsL6 = 60
+    let maxL4 = 12
     let shortHazard = 31   // fern and tallgrass
     let tallHazard = 175   // double plant (variants: peony, rose bush, double tallgrass, large fern, lilac, sunflower)
     let airBlock = Block.Air
@@ -30,16 +31,16 @@ namespace hourOfCode {
     }
     
     /**
-     * Open a door
+     * Opens a gate
      */
-    //% block="open door"
+    //% block="open gate"
     //% weight=90
     export function openDoor() {
         completeTask()
     }
     
     /**
-     * Detect the hazard of a dry fern
+     * Detects if there is a dry fern next to the agent in the specified direction
      * @param dir the direction to detect the dry fern
      */
     //% block="agent detect dry fern %dir"
@@ -49,7 +50,7 @@ namespace hourOfCode {
     }
 
     /**
-     * Detect the hazard of dry grass
+     * Detects if there is dry grass next to the agent in the specified direction
      * @param dir the direction to detect the dry grass
      */
     //% block="agent detect dry grass %dir"
@@ -77,19 +78,21 @@ namespace hourOfCode {
     }
 
     /**
-     * Check for any remaining hazards on level 4
+     * Checks that there are fire hazards
      */
     //% block="hazards remain"
     //% weight=45
     export function hazardsRemainL4() {
+        loops.pause(1)
+        maxL4 -= 1
         if (targetsL4 == 0 && !brokeNonHazard) {
             completeTask()
         }
-        return targetsL4 > 0
+        return targetsL4 > 0 && maxL4 >= 0
     }
 
     /**
-     * Destroy block at level 4
+     * Commands the agent to destroy a block in the given direction
      * @param dir the direction to destroy a block at
      */
     //% block="agent destroy %dir"
@@ -105,7 +108,7 @@ namespace hourOfCode {
     }
 
     /**
-     * Check for any remaining hazards on level 5
+     * Checks that there are fire hazards
      */
     //% block="hazards remain"
     //% weight=55
@@ -117,7 +120,7 @@ namespace hourOfCode {
     }
     
     /**
-     * Destroy block at level 5
+     * Commands the agent to destroy a block in the given direction
      * @param dir the direction to destroy a block at
      */
     //% block="agent destroy %dir"
@@ -133,7 +136,7 @@ namespace hourOfCode {
     }
 
     /**
-     * Check for any remaining hazards on level 6
+     * Checks that there are fire hazards
      */
     //% block="hazards remain"
     //% weight=65
@@ -145,7 +148,7 @@ namespace hourOfCode {
     }
 
     /**
-     * Destroy block at level 6
+     * Commands the agent to destroy a block in the given direction
      * @param dir the direction to destroy a block at
      */
     //% block="agent destroy %dir"
