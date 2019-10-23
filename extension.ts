@@ -10,7 +10,9 @@ namespace hourOfCode {
     let targetsL4 = 5
     let targetsL5 = 10
     let targetsL6 = 60
-    let maxL4 = 12
+    let counterL4 = 9
+    let counterL5 = 25
+    let counterL6 = 75
     let shortHazard = 31   // fern and tallgrass
     let tallHazard = 175   // double plant (variants: peony, rose bush, double tallgrass, large fern, lilac, sunflower)
     let airBlock = Block.Air
@@ -29,7 +31,7 @@ namespace hourOfCode {
             taskIsComplete = true
         }
     }
-    
+
     /**
      * Opens a gate
      */
@@ -38,7 +40,7 @@ namespace hourOfCode {
     export function openDoor() {
         completeTask()
     }
-    
+
     /**
      * Detects if there is a dry fern next to the agent in the specified direction
      * @param dir the direction to detect the dry fern
@@ -83,12 +85,21 @@ namespace hourOfCode {
     //% block="hazards remain"
     //% weight=45
     export function hazardsRemainL4() {
-        loops.pause(1)
-        maxL4 -= 1
-        if (targetsL4 == 0 && !brokeNonHazard) {
-            completeTask()
+        if (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
+            counterL4--
+            if (targetsL4 == 0) {
+                completeTask()
+                return false
+            } else if (counterL4 < 0) {
+                return false
+            } else if (brokeNonHazard) {
+                return false
+            }
+            while (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
+                loops.pause(100)
+            }
         }
-        return targetsL4 > 0 && maxL4 >= 0
+        return true
     }
 
     /**
@@ -100,7 +111,7 @@ namespace hourOfCode {
     export function agentDestroyL4(dir: SixDirection) {
         let targetBlock4 = agent.inspect(AgentInspection.Block, dir)
         if (targetBlock4 == shortHazard || targetBlock4 == tallHazard) {
-            targetsL4 -= 1
+            targetsL4--
         } else if (targetBlock4 != airBlock) {
             brokeNonHazard = true
         }
@@ -113,12 +124,19 @@ namespace hourOfCode {
     //% block="hazards remain"
     //% weight=55
     export function hazardsRemainL5() {
-        if (targetsL5 == 0 && !brokeNonHazard) {
+        counterL5--
+        if (brokeNonHazard) {
+            return false
+        } else if (counterL5 < 0) {
+            return false
+        } else if (targetsL5 == 0) {
             completeTask()
+            return false
+        } else {
+            return true
         }
-        return targetsL5 > 0
     }
-    
+
     /**
      * Commands the agent to destroy a block in the given direction
      * @param dir the direction to destroy a block at
@@ -128,7 +146,7 @@ namespace hourOfCode {
     export function agentDestroyL5(dir: SixDirection) {
         let targetBlock5 = agent.inspect(AgentInspection.Block, dir)
         if (targetBlock5 == shortHazard || targetBlock5 == tallHazard) {
-            targetsL5 -= 1
+            targetsL5--
         } else if (targetBlock5 != airBlock) {
             brokeNonHazard = true
         }
@@ -141,10 +159,17 @@ namespace hourOfCode {
     //% block="hazards remain"
     //% weight=65
     export function hazardsRemainL6() {
-        if (targetsL6 == 0 && !brokeNonHazard) {
+        counterL6--
+        if (brokeNonHazard) {
+            return false
+        } else if (counterL6 < 0) {
+            return false
+        } else if (targetsL6 == 0) {
             completeTask()
+            return false
+        } else {
+            return true
         }
-        return targetsL6 > 0
     }
 
     /**
@@ -156,7 +181,7 @@ namespace hourOfCode {
     export function agentDestroyL6(dir: SixDirection) {
         let targetBlock6 = agent.inspect(AgentInspection.Block, dir)
         if (targetBlock6 == shortHazard || targetBlock6 == tallHazard) {
-            targetsL6 -= 1
+            targetsL6--
         } else if (targetBlock6 != airBlock) {
             brokeNonHazard = true
         }
