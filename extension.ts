@@ -9,10 +9,10 @@ namespace hourOfCode {
     // not specifically include which lesson they are a part of
     let targetsL4 = 5
     let targetsL5 = 10
-    let targetsL6 = 60
+    let targetsL6 = 49
     let counterL4 = 9
-    let counterL5 = 25
-    let counterL6 = 75
+    let counterL5 = 24
+    let counterL6 = 60
     let shortHazard = 31   // fern and tallgrass
     let tallHazard = 175   // double plant (variants: peony, rose bush, double tallgrass, large fern, lilac, sunflower)
     let airBlock = Block.Air
@@ -87,7 +87,7 @@ namespace hourOfCode {
     export function hazardsRemainL4() {
         if (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
             counterL4--
-            if (targetsL4 == 0) {
+            if (targetsL4 <= 0) {
                 completeTask()
                 return false
             } else if (counterL4 < 0) {
@@ -129,7 +129,7 @@ namespace hourOfCode {
             return false
         } else if (counterL5 < 0) {
             return false
-        } else if (targetsL5 == 0) {
+        } else if (targetsL5 <= 0) {
             completeTask()
             return false
         } else {
@@ -144,9 +144,15 @@ namespace hourOfCode {
     //% block="agent destroy %dir"
     //% weight=50
     export function agentDestroyL5(dir: SixDirection) {
+        let targetZ5 = 70
+        let agentZ5 = agent.getPosition().getValue(Axis.Z)
         let targetBlock5 = agent.inspect(AgentInspection.Block, dir)
         if (targetBlock5 == shortHazard || targetBlock5 == tallHazard) {
-            targetsL5--
+            if (Math.abs(agentZ5 - targetZ5) <= 1) {
+                targetsL5--
+            } else {
+                brokeNonHazard = true
+            }
         } else if (targetBlock5 != airBlock) {
             brokeNonHazard = true
         }
@@ -164,7 +170,7 @@ namespace hourOfCode {
             return false
         } else if (counterL6 < 0) {
             return false
-        } else if (targetsL6 == 0) {
+        } else if (targetsL6 <= 0) {
             completeTask()
             return false
         } else {
@@ -179,9 +185,18 @@ namespace hourOfCode {
     //% block="agent destroy %dir"
     //% weight=60
     export function agentDestroyL6(dir: SixDirection) {
+        let targetX6 = -8
+        let targetZ6 = 77
+        let radius = 5
+        let agentX6 = agent.getPosition().getValue(Axis.X)
+        let agentZ6 = agent.getPosition().getValue(Axis.Z)
         let targetBlock6 = agent.inspect(AgentInspection.Block, dir)
         if (targetBlock6 == shortHazard || targetBlock6 == tallHazard) {
-            targetsL6--
+            if (Math.abs(agentX6 - targetX6) <= radius && Math.abs(agentZ6 - targetZ6) <= radius) {
+                targetsL6--
+            } else {
+                brokeNonHazard = true
+            }
         } else if (targetBlock6 != airBlock) {
             brokeNonHazard = true
         }
