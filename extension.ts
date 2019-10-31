@@ -85,7 +85,7 @@ namespace hourOfCode {
     //% block="hazards remain"
     //% weight=45
     export function hazardsRemainL4() {
-        let timeout = 5
+        let timeout = 20
         if (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
             counterL4--
             if (targetsL4 <= 0) {
