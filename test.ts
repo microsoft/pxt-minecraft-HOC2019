@@ -1,6 +1,7 @@
 hourOfCode.agentAnalyze(SixDirection.Forward);
 hourOfCode.agentDetectDryFern(SixDirection.Forward);
 hourOfCode.agentDetectDryGrass(SixDirection.Forward);
+hourOfCode.agentDetectDryBrush(SixDirection.Forward);
 hourOfCode.hazardsRemainL4();
 hourOfCode.hazardsRemainL5();
 hourOfCode.hazardsRemainL6();
