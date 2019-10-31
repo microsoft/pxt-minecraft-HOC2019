@@ -62,6 +62,17 @@ namespace hourOfCode {
     }
 
     /**
+     * Detects if there is dry brush next to the agent in the specified direction
+     * @param dir the direction to detect the dry brush
+     */
+    //% block="agent detect dry brush %dir"
+    //% weight=80
+    export function agentDetectDryBrush(dir: SixDirection) {
+        let currentTarget = agent.inspect(AgentInspection.Block, dir)
+        return currentTarget == tallHazard || currentTarget == shortHazard
+    }
+    
+    /**
      * Check for any hazards in a direction
      * @param dir the direction to check for hazards
      */
