@@ -1,0 +1,16 @@
+{
+  "hourOfCode.agentAnalyze|block": "Agent analysieren %dir",
+  "hourOfCode.agentDestroyL4|block": "Agent zerstören %dir",
+  "hourOfCode.agentDestroyL5|block": "Agent zerstören %dir",
+  "hourOfCode.agentDestroyL6|block": "Agent zerstören %dir",
+  "hourOfCode.agentDetectDryBrush|block": "Agent Erkennen Sie trockenes Brüssel %dir",
+  "hourOfCode.agentDetectDryFern|block": "Agent Erkennen Sie trockenes Farn %dir",
+  "hourOfCode.agentDetectDryGrass|block": "agent Erkennen Sie trockenes Gras %dir",
+  "hourOfCode.completeTask|block": "wahr",
+  "hourOfCode.hazardsRemainL4|block": "Gefahren bleiben bestehen",
+  "hourOfCode.hazardsRemainL5|block": "Gefahren bleiben bestehen",
+  "hourOfCode.hazardsRemainL6|block": "Gefahren bleiben bestehen",
+  "hourOfCode.openDoor|block": "öffne das Tor",
+  "hourOfCode|block": "hourOfCode",
+  "{id:category}HourOfCode": "Code-Stunde"
+}
