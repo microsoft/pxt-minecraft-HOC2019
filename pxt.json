@@ -11,7 +11,8 @@
         "extension.ts",
         "enums.d.ts",
         "_locales/zh/minecraft-hoc2019-strings.json",
-        "_locales/zh/minecraft-hoc2019-jsdoc-strings.json"
+        "_locales/zh/minecraft-hoc2019-jsdoc-strings.json",
+        "_locales/de/minecraft-hoc2019-strings.json"
     ],
     "testFiles": [
         "test.ts"
