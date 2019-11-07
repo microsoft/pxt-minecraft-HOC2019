@@ -11,7 +11,7 @@ namespace hourOfCode {
     let targetsL5 = 10
     let targetsL6 = 49
     let counterL4 = 9
-    let counterL5 = 24
+    let counterL5 = 30
     let counterL6 = 60
     let shortHazard = 31   // fern and tallgrass
     let tallHazard = 175   // double plant (variants: peony, rose bush, double tallgrass, large fern, lilac, sunflower)
