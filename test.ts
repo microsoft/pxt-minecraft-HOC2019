@@ -10,3 +10,6 @@ hourOfCode.agentDestroyL5(SixDirection.Forward);
 hourOfCode.agentDestroyL6(SixDirection.Forward);
 hourOfCode.openDoor();
 hourOfCode.completeTask();
+hourOfCode.agentLookForHazards();
+hourOfCode.agentSeeHazard();
+hourOfCode.alertTeam();
