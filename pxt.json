@@ -21,7 +21,9 @@
         "_locales/fr/minecraft-hoc2019-strings.json",
         "_locales/fr/minecraft-hoc2019-jsdoc-strings.json",
         "_locales/ru/minecraft-hoc2019-strings.json",
-        "_locales/ru/minecraft-hoc2019-jsdoc-strings.json"
+        "_locales/ru/minecraft-hoc2019-jsdoc-strings.json",
+        "_locales/nl/minecraft-hoc2019-strings.json",
+        "_locales/nl/minecraft-hoc2019-jsdoc-strings.json"
 
     ],
     "testFiles": [
