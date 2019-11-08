@@ -18,8 +18,6 @@ namespace hourOfCode {
     let airBlock = Block.Air
     let brokeNonHazard = false
     let taskIsComplete = false
-    let hiddenTarget = positions.createWorld(-63, 68, -78)
-    let successBlock = Block.GoldBlock
     let monitorCount = 10
 
     // hidden from user, used by other functions
@@ -242,6 +240,8 @@ namespace hourOfCode {
      */
     //% block="hazard found"
     export function agentSeeHazard() {
+        let hiddenTarget = positions.createWorld(-63, 68, -78)
+        let successBlock = Block.GoldBlock
         return blocks.testForBlock(successBlock, hiddenTarget)
     }
     
