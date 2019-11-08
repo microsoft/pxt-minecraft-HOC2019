@@ -1,0 +1,21 @@
+{
+  "hourOfCode": "Schreiben von Daten zum Hacken von Stammexperimenten",
+  "hourOfCode.agentAnalyze": "Suchen Sie nach Gefahren in eine Richtung",
+  "hourOfCode.agentAnalyze|param|dir": "the direction to check for hazards",
+  "hourOfCode.agentDestroyL4": "Befiehlt dem Agenten, einen Block in der angegebenen Richtung zu zerstören",
+  "hourOfCode.agentDestroyL4|param|dir": "die Richtung, um einen Block zu zerstören",
+  "hourOfCode.agentDestroyL5": "Befiehlt dem Agenten, einen Block in der angegebenen Richtung zu zerstören",
+  "hourOfCode.agentDestroyL5|param|dir": "die Richtung, um einen Block zu zerstören",
+  "hourOfCode.agentDestroyL6": "Befiehlt dem Agenten, einen Block in der angegebenen Richtung zu zerstören",
+  "hourOfCode.agentDestroyL6|param|dir": "die Richtung, um einen Block zu zerstören",
+  "hourOfCode.agentDetectDryBrush": "Detects if there is dry brush next to the agent in the specified direction",
+  "hourOfCode.agentDetectDryBrush|param|dir": "the direction to detect the dry brush",
+  "hourOfCode.agentDetectDryFern": "Detects if there is a dry fern next to the agent in the specified direction",
+  "hourOfCode.agentDetectDryFern|param|dir": "the direction to detect the dry fern",
+  "hourOfCode.agentDetectDryGrass": "Detects if there is dry grass next to the agent in the specified direction",
+  "hourOfCode.agentDetectDryGrass|param|dir": "the direction to detect the dry grass",
+  "hourOfCode.hazardsRemainL4": "Prüft, ob Brandgefahr besteht",
+  "hourOfCode.hazardsRemainL5": "Prüft, ob Brandgefahr besteht",
+  "hourOfCode.hazardsRemainL6": "Prüft, ob Brandgefahr besteht",
+  "hourOfCode.openDoor": "Öffnet ein Tor"
+}
