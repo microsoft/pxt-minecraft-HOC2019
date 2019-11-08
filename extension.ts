@@ -223,6 +223,7 @@ namespace hourOfCode {
      * Agent watches the monitor for hazards
      */
     //% block="agent look for hazards"
+    //% weight=75
     export function agentLookForHazards() {
         monitorCount--
         loops.pause(500)
@@ -239,6 +240,7 @@ namespace hourOfCode {
      * Sees that there is a hazard on the monitor
      */
     //% block="hazard found"
+    //% weight=74
     export function agentSeeHazard() {
         let hiddenTarget = positions.createWorld(-63, 68, -78)
         let successBlock = Block.GoldBlock
@@ -249,6 +251,7 @@ namespace hourOfCode {
      * Warns the team of a high-risk area
      */
     //% block="alert team"
+    //% weight = 70
     export function alertTeam() {
         if (agentSeeHazard()) {
            agent.attack(SixDirection.Up)
