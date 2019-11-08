@@ -18,6 +18,9 @@ namespace hourOfCode {
     let airBlock = Block.Air
     let brokeNonHazard = false
     let taskIsComplete = false
+    let hiddenTarget = positions.createWorld(-63, 68, -78)
+    let successBlock = Block.GoldBlock
+    let monitorCount = 10
 
     // hidden from user, used by other functions
     //% block
@@ -216,5 +219,40 @@ namespace hourOfCode {
             brokeNonHazard = true
         }
         agent.destroy(dir)
+    }
+    
+    /**
+     * Agent watches the monitor for hazards
+     */
+    //% block="agent look for hazards"
+    export function agentLookForHazards() {
+        monitorCount--
+        loops.pause(500)
+        if (taskIsComplete) {
+            return false
+        } else if (monitorCount < 0) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    /**
+     * Sees that there is a hazard on the monitor
+     */
+    //% block="hazard found"
+    export function agentSeeHazard() {
+        return blocks.testForBlock(successBlock, hiddenTarget)
+    }
+    
+    /**
+     * Warns the team of a high-risk area
+     */
+    //% block="alert team"
+    export function alertTeam() {
+        if (agentSeeHazard()) {
+           agent.attack(SixDirection.Up)
+           completeTask()
+        }
     }
 }
