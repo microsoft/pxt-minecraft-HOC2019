@@ -1,19 +1,18 @@
 {
-  "hourOfCode.hazardsRemainL4|block": "gefahren bleiben bestehen %dir",
-  "hourOfCode.hazardsRemainL5|block": "gefahren bleiben bestehen %dir",
-  "hourOfCode.hazardsRemainL6|block": "gefahren bleiben bestehen %dir",
+  "hourOfCode.hazardsRemainL4|block": "gefahren bleiben bestehen",
+  "hourOfCode.hazardsRemainL5|block": "gefahren bleiben bestehen",
+  "hourOfCode.hazardsRemainL6|block": "gefahren bleiben bestehen",
   "hourOfCode.agentDetectDryFern|block": "agent erkennt trockenen Farn %dir",
-  "hourOfCode.agentDetectDryGrass|block": "aAgent erkennt trockenes Gras %dir",
+  "hourOfCode.agentDetectDryGrass|block": "agent erkennt trockenes Gras %dir",
   "hourOfCode.agentAnalyze|block": "agent analysiert %dir",
   "hourOfCode.agentDestroyL4|block": "agent zerstört %dir",
   "hourOfCode.agentDestroyL5|block": "agent zerstört %dir",
   "hourOfCode.agentDestroyL6|block": "agent zerstört %dir",
   "hourOfCode.openDoor|block": "tor öffnen",
   "hourOfCode.agentDetectDryBrush|block": "agent erkennt trockenes Unterholz %dir",
-  "hourOfCode.agentLookForHazards|block": "Agent erkennt trockenes Unterholz %dir ",
+  "hourOfCode.agentLookForHazards|block": "agent erkennt trockenes Unterholz",
   "hourOfCode.agentSeeHazard|block": "gefahr erkannt",
   "hourOfCode.alertTeam|block": "team alarmieren"
    "{id:category}HourOfCode": "HourOfCode"
 }
-  
   
