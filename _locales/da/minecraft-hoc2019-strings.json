@@ -1,0 +1,18 @@
+{
+  "hourOfCode.agentAnalyze|block": "agent analyseert %dir",
+  "hourOfCode.agentDestroyL4|block": "agent vernietigt %dir",
+  "hourOfCode.agentDestroyL5|block": "agent vernietigt %dir",
+  "hourOfCode.agentDestroyL6|block": "agent vernietigt %dir",
+  "hourOfCode.agentDetectDryBrush|block": "agent detecteert droge struik %dir",
+  "hourOfCode.agentDetectDryFern|block": "agent detecteert droge varen %dir",
+  "hourOfCode.agentDetectDryGrass|block": "agent detecteert droog gras %dir",
+  "hourOfCode.agentLookForHazards|block": "agent zoekt naar gevaren",
+  "hourOfCode.agentSeeHazard|block": "gevaar gevonden",
+  "hourOfCode.alertTeam|block": "awaarschuw team",
+  "hourOfCode.hazardsRemainL4|block": "gevaren resterend",
+  "hourOfCode.hazardsRemainL5|block": "gevaren resterend",
+  "hourOfCode.hazardsRemainL6|block": "gevaren resterend",
+  "hourOfCode.openDoor|block": "open poort",
+  "hourOfCode|block": "hourOfCode",
+  "{id:category}HourOfCode": "HourOfCode"
+}
