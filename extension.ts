@@ -253,9 +253,11 @@ namespace hourOfCode {
     //% block="alert team"
     //% weight = 70
     export function alertTeam() {
+        agent.attack(SixDirection.Up)
         if (agentSeeHazard()) {
-           agent.attack(SixDirection.Up)
            completeTask()
+        } else {
+           monitorCount = -1
         }
     }
 }
