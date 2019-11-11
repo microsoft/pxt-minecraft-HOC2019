@@ -1,0 +1,18 @@
+{
+  "hourOfCode.agentAnalyze|block": "agent analiz et %dir",
+  "hourOfCode.agentDestroyL4|block": "agent yok et %dir",
+  "hourOfCode.agentDestroyL5|block": "agent yok et %dir",
+  "hourOfCode.agentDestroyL6|block": "agent yok et %dir",
+  "hourOfCode.agentDetectDryBrush|block": "agent kuru çalı saptar %dir",
+  "hourOfCode.agentDetectDryFern|block": "agent eğrelti otu saptar %dir",
+  "hourOfCode.agentDetectDryGrass|block": "agent kuru çimen saptar %dir",
+  "hourOfCode.agentLookForHazards|block": "agent tehlike ara",
+  "hourOfCode.agentSeeHazard|block": "tehlike bulundu",
+  "hourOfCode.alertTeam|block": "takımı uyar",
+  "hourOfCode.hazardsRemainL4|block": "tehlikeler var",
+  "hourOfCode.hazardsRemainL5|block": "tehlikeler var",
+  "hourOfCode.hazardsRemainL6|block": "tehlikeler var",
+  "hourOfCode.openDoor|block": "kapıyı aç",
+  "hourOfCode|block": "hourOfCode",
+  "{id:category}HourOfCode": "HourOfCode"
+}
