@@ -12,7 +12,7 @@
   "hourOfCode.agentDetectDryBrush|block": "agent erkennt trockenes Unterholz %dir",
   "hourOfCode.agentLookForHazards|block": "agent erkennt trockenes Unterholz",
   "hourOfCode.agentSeeHazard|block": "gefahr erkannt",
-  "hourOfCode.alertTeam|block": "team alarmieren"
+  "hourOfCode.alertTeam|block": "team alarmieren",
    "{id:category}HourOfCode": "HourOfCode"
 }
   
