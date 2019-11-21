@@ -18,7 +18,7 @@ namespace hourOfCode {
     let airBlock = Block.Air
     let brokeNonHazard = false
     let taskIsComplete = false
-    let monitorCount = 10
+    let monitorCount = 18
 
     // hidden from user, used by other functions
     //% block
