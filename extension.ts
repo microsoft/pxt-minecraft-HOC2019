@@ -260,4 +260,127 @@ namespace hourOfCode {
            monitorCount = -1
         }
     }
+    
+    let NORTH = -180
+    let EAST = -90
+    let SOUTH = 0
+    let WEST = 90
+    let UNIT_NORTH = positions.create(0, 0, -1)
+    let UNIT_EAST = positions.create(1, 0, 0)
+    let UNIT_SOUTH = positions.create(0, 0, 1)
+    let UNIT_WEST = positions.create(-1, 0, 0)
+    let UNIT_UP = positions.create(0, 1, 0)
+    let UNIT_DOWN = positions.create(0, -1, 0)
+
+    /**
+     * Places an item or block in the world
+     */
+    //% block="agent place %b %dir"
+    //% weight = 99
+    export function fakePlace(b: Block, dir: SixDirection) {
+        let agentOrientation = agent.getOrientation()
+        let agentPosition = agent.getPosition()
+        agent.attack(SixDirection.Up)
+        if (agent.inspect(AgentInspection.Block, dir) == Block.Air) {
+            if (dir == SixDirection.Up) {
+                blocks.place(b, positions.add(
+                    agentPosition,
+                    UNIT_UP
+                ))
+            } else if (dir == SixDirection.Down) {
+                blocks.place(b, positions.add(
+                    agentPosition,
+                    UNIT_DOWN
+                ))
+            } else if (agentOrientation == NORTH) {
+                if (dir == SixDirection.Forward) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_NORTH
+                    ))
+                } else if (dir == SixDirection.Right) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_EAST
+                    ))
+                } else if (dir == SixDirection.Back) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_SOUTH
+                    ))
+                } else if (dir == SixDirection.Left) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_WEST
+                    ))
+                }
+            } else if (agentOrientation == EAST) {
+                if (dir == SixDirection.Forward) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_EAST
+                    ))
+                } else if (dir == SixDirection.Right) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_SOUTH
+                    ))
+                } else if (dir == SixDirection.Back) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_WEST
+                    ))
+                } else if (dir == SixDirection.Left) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_NORTH
+                    ))
+                }
+            } else if (agentOrientation == SOUTH) {
+                if (dir == SixDirection.Forward) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_SOUTH
+                    ))
+                } else if (dir == SixDirection.Right) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_WEST
+                    ))
+                } else if (dir == SixDirection.Back) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_NORTH
+                    ))
+                } else if (dir == SixDirection.Left) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_EAST
+                    ))
+                }
+            } else if (agentOrientation == WEST) {
+                if (dir == SixDirection.Forward) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_WEST
+                    ))
+                } else if (dir == SixDirection.Right) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_NORTH
+                    ))
+                } else if (dir == SixDirection.Back) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_EAST
+                    ))
+                } else if (dir == SixDirection.Left) {
+                    blocks.place(b, positions.add(
+                        agentPosition,
+                        UNIT_SOUTH
+                    ))
+                }
+            }
+        }
+    }
 }
