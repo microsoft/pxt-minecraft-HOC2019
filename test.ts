@@ -13,4 +13,5 @@ hourOfCode.completeTask();
 hourOfCode.agentLookForHazards();
 hourOfCode.agentSeeHazard();
 hourOfCode.alertTeam();
-hourOfCode.fakePlace(Block.Grass, SixDirection.Forward);
+hourOfCode.agentPlaceAcacia(SixDirection.Forward);
+hourOfCode.agentPlantCarrots();
