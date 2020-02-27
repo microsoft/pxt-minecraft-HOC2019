@@ -266,7 +266,7 @@ namespace hourOfCode {
      */
     //% block="agent place acacia %dir"
     //% weight = 98
-    export function agentPlaceAcacia(dir: SixDirection): void {
+    export function agentPlaceAcacia(dir: SixDirection) {
         let MIN_SLOT = 1
         let MAX_SLOT = 27
         let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
@@ -280,7 +280,7 @@ namespace hourOfCode {
      */
     //% block="agent plant carrots"
     //% weight = 99
-    export function agentPlantCarrots(): void {
+    export function agentPlantCarrots() {
         let MIN_SLOT = 1
         let MAX_SLOT = 27
         let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
