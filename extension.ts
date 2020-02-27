@@ -262,18 +262,30 @@ namespace hourOfCode {
     }
     
     /**
-     * Causes the agent to place the specified block in the specified direction
+     * Causes the agent to place an acacia plank in the specified direction
      */
-    //% block="agent place %b %dir"
+    //% block="agent place acacia %dir"
+    //% weight = 98
+    export function agentPlaceAcacia(dir: SixDirection): void {
+        let MIN_SLOT = 1
+        let MAX_SLOT = 27
+        let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
+        agent.setItem(PLANKS_ACACIA, 1, randomSlot)
+        agent.setSlot(randomSlot)
+        agent.place(dir)
+    }
+    
+    /**
+     * Causes the agent to plant carrots downwards
+     */
+    //% block="agent plant carrots"
     //% weight = 99
-    export function fakePlace(b: Block, dir: SixDirection) {
-        if (!(b == AIR)) {
-            let MIN_SLOT = 1
-            let MAX_SLOT = 27
-            let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
-            agent.setItem(b, 1, randomSlot)
-            agent.setSlot(randomSlot)
-            agent.place(dir)
-        }
+    export function agentPlantCarrots(): void {
+        let MIN_SLOT = 1
+        let MAX_SLOT = 27
+        let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
+        agent.setItem(CARROTS, 1, randomSlot)
+        agent.setSlot(randomSlot)
+        agent.place(DOWN)
     }
 }
