@@ -262,7 +262,21 @@ namespace hourOfCode {
     }
     
     /**
-     * Causes the agent to place an acacia plank in the specified direction
+     * Commands the agent to place a redstone torch in the specified direction
+     */
+    //% block="agent place redstone torch %dir"
+    //% weight = 97
+    export function agentPlaceRedstoneTorch(dir: SixDirection) {
+        let MIN_SLOT = 1
+        let MAX_SLOT = 27
+        let randomSlot = Math.randomRange(MIN_SLOT, MAX_SLOT)
+        agent.setItem(REDSTONE_TORCH, 1, randomSlot)
+        agent.setSlot(randomSlot)
+        agent.place(dir)
+    }
+    
+    /**
+     * Commands the agent to place an acacia plank in the specified direction
      */
     //% block="agent place acacia %dir"
     //% weight = 98
@@ -276,7 +290,7 @@ namespace hourOfCode {
     }
     
     /**
-     * Causes the agent to plant carrots downwards
+     * Commands the agent to plant carrots downwards
      */
     //% block="agent plant carrots"
     //% weight = 99
