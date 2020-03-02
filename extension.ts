@@ -302,4 +302,12 @@ namespace hourOfCode {
         agent.setSlot(randomSlot)
         agent.place(DOWN)
     }
+    
+    /**
+     * Checks whether the agent is standing on the gold block that represents the goal
+     */
+    //% block = "goal not reached"
+    export function goalNotReached() {
+        return agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK
+    }
 }
