@@ -16,3 +16,4 @@ hourOfCode.alertTeam();
 hourOfCode.agentPlaceRedstoneTorch(SixDirection.Forward);
 hourOfCode.agentPlaceAcacia(SixDirection.Forward);
 hourOfCode.agentPlantCarrots();
+hourOfCode.goalNotReached();
