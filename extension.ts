@@ -307,6 +307,7 @@ namespace hourOfCode {
      * Checks whether the agent is standing on the gold block that represents the goal
      */
     //% block = "goal not reached"
+    //% weight = 96
     export function goalNotReached() {
         return agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK
     }
