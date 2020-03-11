@@ -1,6 +1,6 @@
 {
     "name": "minecraft-hoc2019",
-    "version": "0.0.48",
+    "version": "0.0.49",
     "description": "Support for Minecraft Hour of Code activities",
     "license": "MIT",
     "dependencies": {
