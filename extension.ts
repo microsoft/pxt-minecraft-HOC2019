@@ -273,6 +273,7 @@ namespace hourOfCode {
         agent.setItem(REDSTONE_TORCH, 1, randomSlot)
         agent.setSlot(randomSlot)
         agent.place(dir)
+        agent.setItem(AIR, 1, randomSlot)
     }
     
     /**
@@ -287,6 +288,7 @@ namespace hourOfCode {
         agent.setItem(PLANKS_ACACIA, 1, randomSlot)
         agent.setSlot(randomSlot)
         agent.place(dir)
+        agent.setItem(AIR, 1, randomSlot)
     }
     
     /**
@@ -301,6 +303,7 @@ namespace hourOfCode {
         agent.setItem(CARROTS, 1, randomSlot)
         agent.setSlot(randomSlot)
         agent.place(DOWN)
+        agent.setItem(AIR, 1, randomSlot)
     }
     
     /**
