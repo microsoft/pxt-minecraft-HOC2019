@@ -307,7 +307,7 @@ namespace hourOfCode {
     }
     
     /**
-     * Checks whether the agent is standing on the gold block that represents the goal
+     * Checks whether the agent has reached the goal
      */
     //% block = "goal not reached"
     //% weight = 96
@@ -316,7 +316,7 @@ namespace hourOfCode {
     }
     
     /**
-     * Runs collectAll() and checks the number of items in agent slot 1 for lesson completion
+     * Commands the agent to collect all nearby blocks and items
      */
     //% block = "collect all"
     //% weight = 95
@@ -324,7 +324,7 @@ namespace hourOfCode {
         let SLOT_NUMBER = 1
         let TOTAL_PIECES = 29
         agent.collectAll()
-        if (agent.getItemCount(SLOT_NUMBER) == TOTAL_PIECES) {
+        if (agent.getItemCount(SLOT_NUMBER) >= TOTAL_PIECES) {
             blocks.place(REDSTONE_TORCH, world(-143, 31, 59))
         }
     }
