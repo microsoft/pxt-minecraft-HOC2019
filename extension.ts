@@ -314,4 +314,18 @@ namespace hourOfCode {
     export function goalNotReached() {
         return agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK
     }
+    
+    /**
+     * Runs collectAll() and checks the number of items in agent slot 1 for lesson completion
+     */
+    //% block = "collect all"
+    //% weight = 95
+    export function collectAndCount() {
+        let SLOT_NUMBER = 1
+        let TOTAL_PIECES = 29
+        agent.collectAll()
+        if (agent.getItemCount(SLOT_NUMBER) == TOTAL_PIECES) {
+            blocks.place(REDSTONE_TORCH, world(-143, 31, 59))
+        }
+    }
 }
