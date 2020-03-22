@@ -309,7 +309,7 @@ namespace hourOfCode {
     /**
      * Checks whether the agent has reached the goal
      */
-    //% block = "goal not reached"
+    //% block="goal not reached"
     //% weight = 96
     export function goalNotReached() {
         return agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK
@@ -318,7 +318,7 @@ namespace hourOfCode {
     /**
      * Commands the agent to collect all nearby blocks and items
      */
-    //% block = "collect all"
+    //% block="collect all"
     //% weight = 95
     export function collectAndCount() {
         let SLOT_NUMBER = 1
