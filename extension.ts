@@ -108,13 +108,20 @@ namespace hourOfCode {
             } else if (brokeNonHazard) {
                 return false
             }
+            // Keep testing until the next hazard appears (air means it has not)
             while (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
-                loops.pause(100)
+                // If a hazard has not appeared, wait 6 ticks before testing again
+                for (let index = 0; index < 6; index++) {
+                  // We use testForBlock because it takes one tick (this is more reliable than waiting for X milliseconds because it's not platform dependent)
+                  blocks.testForBlock(GRASS, world(-60, 71, -90); // we're ignoring the return value since we just use this to pass time
+                }
                 if (timeout-- <= 0) {
                     return false
                 }
             }
         }
+        
+        // If we reached this point, a hazard has appeared! return true here so the student's code inside the while(hazardsRemain) can continue
         return true
     }
 
