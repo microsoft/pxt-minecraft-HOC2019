@@ -113,7 +113,7 @@ namespace hourOfCode {
                 // If a hazard has not appeared, wait 6 ticks before testing again
                 for (let index = 0; index < 6; index++) {
                   // We use testForBlock because it takes one tick (this is more reliable than waiting for X milliseconds because it's not platform dependent)
-                  blocks.testForBlock(GRASS, world(-60, 71, -90); // we're ignoring the return value since we just use this to pass time
+                  blocks.testForBlock(GRASS, world(-60, 71, -90)); // we're ignoring the return value since we just use this to pass time
                 }
                 if (timeout-- <= 0) {
                     return false
