@@ -13,8 +13,8 @@ namespace hourOfCode {
     let counterL4 = 9
     let counterL5 = 30
     let counterL6 = 60
-    let shortHazard = 31   // fern and tallgrass
-    let tallHazard = 175   // double plant (variants: peony, rose bush, double tallgrass, large fern, lilac, sunflower)
+    let shortHazards = [31, FERN, TALLGRASS]    // single-block plants and old base id
+    let tallHazards = [175, PEONY, ROSE_BUSH, DOUBLE_TALLGRASS, LARGE_FERN, LILAC, SUNFLOWER] // double plants and old base id
     let airBlock = Block.Air
     let brokeNonHazard = false
     let taskIsComplete = false
@@ -49,7 +49,7 @@ namespace hourOfCode {
     //% block="agent detect dry fern %dir"
     //% weight=80
     export function agentDetectDryFern(dir: SixDirection) {
-        return agent.inspect(AgentInspection.Block, dir) == shortHazard
+        return shortHazards.indexOf(agent.inspect(AgentInspection.Block, dir)) != -1
     }
 
     /**
@@ -59,7 +59,7 @@ namespace hourOfCode {
     //% block="agent detect dry grass %dir"
     //% weight=80
     export function agentDetectDryGrass(dir: SixDirection) {
-        return agent.inspect(AgentInspection.Block, dir) == tallHazard
+        return tallHazards.indexOf(agent.inspect(AgentInspection.Block, dir)) != -1
     }
 
     /**
@@ -70,9 +70,9 @@ namespace hourOfCode {
     //% weight=80
     export function agentDetectDryBrush(dir: SixDirection) {
         let currentTarget = agent.inspect(AgentInspection.Block, dir)
-        return currentTarget == tallHazard || currentTarget == shortHazard
+        return tallHazards.indexOf(currentTarget) != -1 || shortHazards.indexOf(currentTarget) != -1
     }
-    
+
     /**
      * Check for any hazards in a direction
      * @param dir the direction to check for hazards
@@ -81,7 +81,7 @@ namespace hourOfCode {
     //% weight=70
     export function agentAnalyze(dir: SixDirection) {
         let targetBlock = agent.inspect(AgentInspection.Block, dir)
-        if (targetBlock == shortHazard || targetBlock == tallHazard) {
+        if (shortHazards.indexOf(targetBlock) != -1 || tallHazards.indexOf(targetBlock) != -1) {
             mobs.execute(
                 mobs.target(TargetSelectorKind.NearestPlayer),
                 positions.create(0, 0, 0),
@@ -112,15 +112,15 @@ namespace hourOfCode {
             while (agent.inspect(AgentInspection.Block, SixDirection.Forward) == airBlock) {
                 // If a hazard has not appeared, wait 6 ticks before testing again
                 for (let index = 0; index < 6; index++) {
-                  // We use testForBlock because it takes one tick (this is more reliable than waiting for X milliseconds because it's not platform dependent)
-                  blocks.testForBlock(GRASS, world(-60, 71, -90)); // we're ignoring the return value since we just use this to pass time
+                    // We use testForBlock because it takes one tick (this is more reliable than waiting for X milliseconds because it's not platform dependent)
+                    blocks.testForBlock(GRASS, world(-60, 71, -90)); // we're ignoring the return value since we just use this to pass time
                 }
                 if (timeout-- <= 0) {
                     return false
                 }
             }
         }
-        
+
         // If we reached this point, a hazard has appeared! return true here so the student's code inside the while(hazardsRemain) can continue
         return true
     }
@@ -133,7 +133,7 @@ namespace hourOfCode {
     //% weight=40
     export function agentDestroyL4(dir: SixDirection) {
         let targetBlock4 = agent.inspect(AgentInspection.Block, dir)
-        if (targetBlock4 == shortHazard || targetBlock4 == tallHazard) {
+        if (shortHazards.indexOf(targetBlock4) != -1 || tallHazards.indexOf(targetBlock4) != -1) {
             targetsL4--
         } else if (targetBlock4 != airBlock) {
             brokeNonHazard = true
@@ -170,7 +170,7 @@ namespace hourOfCode {
         let targetZ5 = 70
         let agentZ5 = agent.getPosition().getValue(Axis.Z)
         let targetBlock5 = agent.inspect(AgentInspection.Block, dir)
-        if (targetBlock5 == shortHazard || targetBlock5 == tallHazard) {
+        if (shortHazards.indexOf(targetBlock5) != -1 || tallHazards.indexOf(targetBlock5) != -1 ) {
             if (Math.abs(agentZ5 - targetZ5) <= 1) {
                 targetsL5--
             } else {
@@ -214,7 +214,7 @@ namespace hourOfCode {
         let agentX6 = agent.getPosition().getValue(Axis.X)
         let agentZ6 = agent.getPosition().getValue(Axis.Z)
         let targetBlock6 = agent.inspect(AgentInspection.Block, dir)
-        if (targetBlock6 == shortHazard || targetBlock6 == tallHazard) {
+        if (shortHazards.indexOf(targetBlock6) != -1 || tallHazards.indexOf(targetBlock6) != -1) {
             if (Math.abs(agentX6 - targetX6) <= radius && Math.abs(agentZ6 - targetZ6) <= radius) {
                 targetsL6--
             } else {
@@ -225,7 +225,7 @@ namespace hourOfCode {
         }
         agent.destroy(dir)
     }
-    
+
     /**
      * Agent watches the monitor for hazards
      */
@@ -253,7 +253,7 @@ namespace hourOfCode {
         let successBlock = Block.GoldBlock
         return blocks.testForBlock(successBlock, hiddenTarget)
     }
-    
+
     /**
      * Warns the team of a high-risk area
      */
@@ -262,12 +262,12 @@ namespace hourOfCode {
     export function alertTeam() {
         agent.attack(SixDirection.Up)
         if (agentSeeHazard()) {
-           completeTask()
+            completeTask()
         } else {
-           monitorCount = -1
+            monitorCount = -1
         }
     }
-    
+
     /**
      * Commands the agent to place a redstone torch in the specified direction
      */
@@ -282,7 +282,7 @@ namespace hourOfCode {
         agent.place(dir)
         agent.setItem(AIR, 1, randomSlot)
     }
-    
+
     /**
      * Commands the agent to place an acacia plank in the specified direction
      */
@@ -297,7 +297,7 @@ namespace hourOfCode {
         agent.place(dir)
         agent.setItem(AIR, 1, randomSlot)
     }
-    
+
     /**
      * Commands the agent to plant carrots downwards
      */
@@ -312,7 +312,7 @@ namespace hourOfCode {
         agent.place(DOWN)
         agent.setItem(AIR, 1, randomSlot)
     }
-    
+
     /**
      * Checks whether the agent has reached the goal
      */
@@ -321,7 +321,7 @@ namespace hourOfCode {
     export function goalNotReached() {
         return agent.inspect(AgentInspection.Block, DOWN) != GOLD_BLOCK
     }
-    
+
     /**
      * Commands the agent to collect all nearby blocks and items
      */
